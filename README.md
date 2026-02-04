@@ -3,7 +3,7 @@ Based on mkhmtolzhas' rice. Meant for personal use only.
 
 ## Notes
 - This repo assumes you already installed base-devel, git, and yay.
-- This repo assumes you have turned mirror link downloads on for pacman.
+- This repo assumes you have turned on mirror link downloads for pacman.
 - After installing pip, install haishoku and colorthief for pywal.
 
 ## Other Dependencies
