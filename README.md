@@ -7,6 +7,7 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I 
 | :---: |
 | [🔗 Dependencies](#dependencies) |
 | [🚀 Features](#features) |
+| [🔨 How to Make Skins](#how-to-make-skins) |
 | [📝 Notes](#notes) |
 
 ## Dependencies
@@ -59,10 +60,14 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I 
   - Supports both image (via `swww`) and video (via `mpvpaper`) formats.
     - `mpvpaper` automatically stops if an app is on fullscreen mode to save CPU, RAM, or GPU space.
   - Border colors and UI elements have dynamic color schemes.
-- **Familiar Waybar Setup**
-  - Sleek and straightforward design.
-  - Built to feel like a Windows taskbar.
-    - Choose to start an app, change workspaces, or select power options like Lock, Sleep, Shut Down, Reboot, and Sign Out.
+- **Select Waybar Skins**
+  - Legacy
+    - Sleek and straightforward design.
+    - Built to feel like a Windows taskbar.
+  - mkhmtcore
+    - Modern and minimalistic.
+    - Beautiful design.
+  - And the best part? You can add your own!
 <br>
 
 ## Notes
@@ -70,11 +75,18 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I 
   - `start-dashboard.sh` creates a grid layout for a 1920x1080 display, however I also provided a 1280x720 version of the dashboard in `~/.config/hypr/windowrules.conf/`.
 <br>
 
+## How to Make Skins
+Make sure to analyze the directory structure of `~/.config/waybar/skins` and how the files (`config.jsonc`, `colors.css`, `style.css`, `layout.jsonc`, `modules.jsonc`) include or import from each other.
+
+You have two options:
+- Install someone else's Waybar setup and then manually adjust its files to correctly import or include; or
+- Make your own.
+<br>
+
 ## TODO
 - Improve Hyprlock UI
 - Select Waybar skins
 - Select Fastfetch presets
-
 <br>
 
 ## Optional
