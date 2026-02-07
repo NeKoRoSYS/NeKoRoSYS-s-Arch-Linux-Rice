@@ -89,6 +89,7 @@ You have two options:
 ## TODO
 - Improve Hyprlock UI
 - Select Fastfetch presets
+- Automatically invert waybar color values if wallpaper is too darlk or too light
 <br>
 
 ## Optional
