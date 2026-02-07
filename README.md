@@ -49,6 +49,7 @@ Mostly just personal notes in case I switch over to another PC.
   - `options nvidia NVreg_EnableS0ixPowerManagement=1`
   - `install nvidia_uvm /usr/bin/false`
 - Modify `/etc/default/grub`
+  - `sudo pacman -S os-prober`
   - `GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet rd.udev.log_level=3 systemd.show_status=auto vt.global_cursor_default=0 nvidia_drm.modeset=1 nvidia_drm.fbdev=1 pci=noaer pcie_aspm=off nvme_core.default_ps_max_latency_us=0 nvidia.NVreg_EnableS0ixPowerManagement=1 intel_pstate=active i915.modeset=1 i915.enable_fbc=1 mitigations=off"`
   - `GRUB_THEME="/boot/grub/themes/minegrub-world-selection/theme.txt"`
   - `GRUB_DISABLE_OS_PROBER=false`
