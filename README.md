@@ -2,6 +2,13 @@
 Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I initially made this repo because installing Invincible Dots didn't seem to work. Hence, I rebuilt it from the ground up using a lot of the repo's already-working parts so that it works with Hyprland's later versions. Why this fork stands out, you may ask? I added my own flavor to it, such as the support for video wallpapers; a couple of bug fixes at the keybinds config file (specifically, the bug that lets you open infinite instances of wofi which is very unoptimal); and a lot more!
 <br>
 <br>
+| :---: |
+| Table of Contents |
+| [Dependencies](#dependencies) |
+| [Features](#features) |
+| [Notes](#notes) |
+<br>
+<br>
 <br>
 ![Screenshot](image.png) 
 <br>
@@ -12,6 +19,21 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I 
 ![Screenshot](image-2.png) 
 <br>
 <br>
+## Dependencies
+- Auto-pause animated wallpapers via [mpvpaper-stop](https://github.com/pvtoari/mpvpaper-stop) (dependencies: cmake, cjson)
+  - Used at `set-wallpaper.sh` and `check-video.sh` in `~/.config/hypr/scripts/wallpapers/` to save CPU/RAM usage.
+- This rice uses `wofi` to run actions and apps.
+  - Install via `sudo pacman -S wofi`.
+  - Some apps like `mpvpaper` needs to be ran using `prime-run` and `gamemoderun`
+    - Install via `sudo pacman -S nvidia-prime gamemode`.
+  - (Automatically provided by `pkglist.txt` if you used the `install.sh` bash file)
+- `hyprland` uses `hyprdile` and `hyprlock`.
+  - Install them via `sudo pacman -S hyprlock hypridle`. (Automatically provided by `pkglist.txt` if you used the `install.sh` bash file)
+- Waybar was set up to use `kitty`, `Mozilla Firefox`, and `dolphin`. You can change this if you want at `~/.config/waybar/config.jsonc`.
+- The screenshot and clipboard features need `grim`, `slurp`, `hyprshot`, `wl-clipboard`, and `cliphist` to run.
+  - Install them via `sudo pacman -S grim wl-clipboard cliphist`. (Automatically provided by `pkglist.txt` if you used the `install.sh` bash file)
+<br>
+
 ## Features
 - **One-tap Installer Script**
   - use `git clone https://github.com/NeKoRoSYS/NeKoRoSYS-Arch-Dotfiles`
@@ -43,21 +65,6 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I 
 ## Notes
 - **IMPORTANT:** This rice originally uses my dual-monitor setup. Enter `grep -r "DP-1" ~/.config/` and `grep -r "eDP-1" ~/.config/` to find all occurences of my monitors being mentioned so you can replace them with your own.
   - `start-dashboard.sh` creates a grid layout for a 1920x1080 display, however I also provided a 1280x720 version of the dashboard in `~/.config/hypr/windowrules.conf/`.
-<br>
-
-## Dependencies
-- Auto-pause animated wallpapers via [mpvpaper-stop](https://github.com/pvtoari/mpvpaper-stop) (dependencies: cmake, cjson)
-  - Used at `set-wallpaper.sh` and `check-video.sh` in `~/.config/hypr/scripts/wallpapers/` to save CPU/RAM usage.
-- This rice uses `wofi` to run actions and apps.
-  - Install via `sudo pacman -S wofi`.
-  - Some apps like `mpvpaper` needs to be ran using `prime-run` and `gamemoderun`
-    - Install via `sudo pacman -S nvidia-prime gamemode`.
-  - (Automatically provided by `pkglist.txt` if you used the `install.sh` bash file)
-- `hyprland` uses `hyprdile` and `hyprlock`.
-  - Install them via `sudo pacman -S hyprlock hypridle`. (Automatically provided by `pkglist.txt` if you used the `install.sh` bash file)
-- Waybar was set up to use `kitty`, `Mozilla Firefox`, and `dolphin`. You can change this if you want at `~/.config/waybar/config.jsonc`.
-- The screenshot and clipboard features need `grim`, `slurp`, `hyprshot`, `wl-clipboard`, and `cliphist` to run.
-  - Install them via `sudo pacman -S grim wl-clipboard cliphist`. (Automatically provided by `pkglist.txt` if you used the `install.sh` bash file)
 <br>
 
 ## TODO
