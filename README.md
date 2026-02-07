@@ -11,7 +11,8 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots).
     - mpvpaper automatically stops if an app is on fullscreen mode to save CPU, RAM, or GPU space
   - Border colors and UI elements have dynamic color schemes
 - Familiar waybar setup
-  - Built to feel like a windows taskbar, but with a sleek and straightforward UI/UX design
+  - Sleek and straightforward design
+  - Built to feel like a windows taskbar
     - Choose to start an app, change workspaces, or select power options like Lock, Sleep, Shut Down, Reboot, and Sign Out
 
 ## Notes
