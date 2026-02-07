@@ -7,8 +7,9 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I 
 | :---: |
 | [🔗 Dependencies](#dependencies) |
 | [🚀 Features](#features) |
-| [🔨 How to Make Skins](#how-to-make-skins) |
+| [🔨 Waybar Skins](#how-to-make-skins) |
 | [📝 Notes](#notes) |
+| [📋 TODO](#todo) |
 
 ## Dependencies
 - Auto-pause animated wallpapers via [mpvpaper-stop](https://github.com/pvtoari/mpvpaper-stop) (dependencies: cmake, cjson)
@@ -75,7 +76,7 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I 
   - `start-dashboard.sh` creates a grid layout for a 1920x1080 display, however I also provided a 1280x720 version of the dashboard in `~/.config/hypr/windowrules.conf/`.
 <br>
 
-## How to Make Skins
+## Waybar Skins
 Make sure to analyze the directory structure of `~/.config/waybar/skins` and how the files (`config.jsonc`, `colors.css`, `style.css`, `layout.jsonc`, `modules.jsonc`) include or import from each other.
 
 You have two options:
