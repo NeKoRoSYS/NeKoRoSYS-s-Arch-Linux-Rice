@@ -160,3 +160,5 @@ Mostly personal notes just in case I switch over to another PC. Do NOT copy my G
     ]
     ```
   - `wpctl set-default yourNoiceCancelledID` (find in `wpctl status`)
+### Quality-of-Life
+- Install [Hypremoji](https://github.com/Musagy/hypremoji)
