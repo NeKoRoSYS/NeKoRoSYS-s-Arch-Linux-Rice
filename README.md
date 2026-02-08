@@ -20,7 +20,7 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I 
 > 
 > The [System Booting](#system-booting) section contains settings specifically optimized for a dual-GPU laptop (Intel 620/Nvidia 940MX). 
 > **Do not** copy the `GRUB_CMDLINE_LINUX_DEFAULT` or `mkinitcpio` modules unless you have identical hardware, as this may prevent your system from booting.
-
+<br>
 
 ## Dependencies
 - Auto-pause animated wallpapers via [mpvpaper-stop](https://github.com/pvtoari/mpvpaper-stop) (dependencies: cmake, cjson)
@@ -98,9 +98,11 @@ NeKoRoSYS's HyprDots focuses on simplicity and modularity.
 <br>
 ![Screenshot](image-2.png) 
 <br>
+<br>
 
 > [!WARNING]
 > `start-dashboard.sh` creates a grid layout for a 1920x1080 display, however I also provided a 1280x720 version of the dashboard in `~/.config/hypr/windowrules.conf/`.
+<br>
 
 ## Skins and Layouts
 Make sure to analyze the directory structure of `~/.config/waybar/skins` and `~/.config/hypr/hyprlock/`; and how the files (`hyprlock.conf`, `config.jsonc`, `colors.css`, `style.css`, `layout.jsonc`, `modules.jsonc`) include or import from each other.
