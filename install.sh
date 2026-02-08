@@ -1,13 +1,24 @@
 #!/bin/bash
 
+echo -e "# ======================================================= #"
+echo -e "#             NecroDots Installation Wizard               #"
+echo -e "# ======================================================= #\n "
+
+while true; do
+    echo -ne "\033[0;34mDo you want to start the NecroDots installation? (y/n): \033[0m"
+    read -r yn
+    case $yn in
+        [yY]* ) break;;
+        [nN]* ) echo -e "\033[0;31mInstallation aborted.\033[0m"; exit;;
+        * ) echo "Please answer yes (y) or no (n).";;
+    esac
+done
+
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-echo -e "# ======================================================= #"
-echo -e "#             NecroDots Installation Wizard               #"
-echo -e "# ======================================================= #\n "
 echo -e "${BLUE}Starting installation...${NC}"
 
 if ! command -v yay &> /dev/null; then
