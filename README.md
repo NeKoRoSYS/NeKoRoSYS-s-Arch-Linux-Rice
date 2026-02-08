@@ -87,7 +87,6 @@ NeKoRoSYS's HyprDots focuses on simplicity and modularity.
     - Credits to [justinmdickey](https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf) for the layout.
   - And the best part? You can add your own!
 <br>
-<br>
 
 ![Screenshot](image.png) 
 <br>
