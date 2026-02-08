@@ -1,3 +1,2 @@
 com.obsproject.Studio
 org.kde.okular
-org.vinegarhq.Sober
