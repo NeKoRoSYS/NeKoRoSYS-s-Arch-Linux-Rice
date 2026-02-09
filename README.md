@@ -210,10 +210,11 @@ Mostly personal notes just in case I switch over to another PC. Do NOT copy my G
 
 ### Quality-of-Life
 - Install [Hypremoji](https://github.com/Musagy/hypremoji)
-- Fix waybay tray disappearing adter a certain amount of time.
+- Fix waybay tray disappearing after a certain amount of time.
   ```
   yay -S sni-qt
   ```
+  Make sure you're not killing waybar using -SIGUSER2 when refreshing the config.
 <br>
 
 ## Sponsorship
