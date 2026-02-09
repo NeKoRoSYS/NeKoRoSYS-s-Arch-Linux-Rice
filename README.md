@@ -211,6 +211,10 @@ Mostly personal notes just in case I switch over to another PC. Do NOT copy my G
 ### Quality-of-Life
 - Install [Hypremoji](https://github.com/Musagy/hypremoji)
 <br>
+- Fix waybay tray disappearing adter a certain amount of time.
+  ```
+  yay -S sni-qt
+  ```
 
 ## Sponsorship
 I am an aspiring software and game developer that currently do stuff solo. [Donating](https://ko-fi.com/nekorosys) is not a must, but it will be immensely cherished and appreciated!
