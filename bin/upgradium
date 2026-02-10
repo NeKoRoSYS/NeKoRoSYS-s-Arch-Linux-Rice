@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+
+# --- 1. Pre-Flight Checks ---
+# Ensure we aren't running as root (the script handles sudo where needed)
+if [[ $EUID -eq 0 ]]; then
+   echo "❌ ERROR: Please do not run this script with 'sudo'. Run it as your normal user."
+   exit 1
+fi
+
+# Ensure Timeshift is configured
+if [ ! -f "/etc/timeshift/timeshift.json" ] && [ ! -f "/etc/timeshift.json" ]; then
+    echo "❌ ERROR: Timeshift is not configured. Please run 'sudo timeshift --wizard' once."
+    exit 1
+fi
+
+# --- 2. The Command Center ---
+echo "-------------------------------------------------------"
+echo "🛠️  ARCH LINUX ULTIMATE UPDATE TOOL (v2.0)"
+echo "-------------------------------------------------------"
+echo "  [1] 📸 SNAPSHOT: System backup (Using GUI Filters)"
+echo "  [2] 📡 MIRRORS:  Fastest Japan, Korea, Singapore, Taiwan"
+echo "  [3] 🔑 KEYRING:  Secure Arch-keyring pre-update"
+echo "  [4] 📦 SYSTEM:   Pacmatic upgrade + AUR (Yay)"
+echo "  [5] 🧹 CLEANUP:  Old snapshots & .pacnew check"
+echo "-------------------------------------------------------"
+
+read -p "🚀 Start the update sequence? [y=Yes / s=Skip Backup / n=No]: " confirm
+
+if [[ $confirm == [nN]* ]]; then
+    echo "🛑 Update aborted by user."
+    exit 0
+fi
+
+# --- 3. Phase 1: Timeshift Snapshot ---
+if [[ $confirm == [yY]* ]]; then
+    echo "📸 Phase 1: Creating system snapshot..."
+    # Note: This relies on the filters you set in the Timeshift GUI settings
+    sudo timeshift --create --comments "Pre-Update" --tags D || {
+        echo "⚠️  Snapshot failed! Disk might be full or IO is locked."
+        read -p "❓ Proceed without backup? (y/n): " ignore_ts
+        [[ $ignore_ts != [yY]* ]] && exit 1
+    }
+else
+    echo "⏩ Skipping snapshot as requested..."
+fi
+
+# --- 4. Phase 2: Mirror Optimization ---
+echo "📡 Phase 2: Finding fastest Asia mirrors..."
+# Filters for the most reliable backbone hubs in the region
+sudo reflector --country 'Japan,South Korea,Singapore,Taiwan' \
+               --latest 15 \
+               --protocol https \
+               --sort rate \
+               --save /etc/pacman.d/mirrorlist || echo "⚠️ Mirror sync failed, using current list."
+
+# --- 5. Phase 3: Keyring Protection ---
+echo "🔑 Phase 3: Refreshing Arch Keyring..."
+# This avoids the "Unknown Trust" error for systems that haven't updated in a while
+sudo pacman -Sy --needed --noconfirm archlinux-keyring
+
+# --- 6. Phase 4: System & AUR Upgrade ---
+echo "📦 Phase 4: Running System & AUR Upgrades..."
+# Pacmatic shows Arch News; Yay handles the AUR
+sudo pacmatic -Syu && yay -Sua --devel || { echo "❌ Upgrade failed!"; exit 1; }
+
+# --- 7. Phase 5: Kernel Reboot Check ---
+echo "⚙️  Checking if a reboot is needed..."
+# Compare version in DB vs current running kernel
+INSTALLED_KERNEL=$(pacman -Q linux | awk '{print $2}')
+RUNNING_KERNEL=$(uname -r)
+
+if [[ "$RUNNING_KERNEL" != *"$INSTALLED_KERNEL"* ]]; then
+    REBOOT_NEEDED=true
+    echo "🔔 REBOOT REQUIRED: Kernel updated ($RUNNING_KERNEL -> $INSTALLED_KERNEL)"
+fi
+
+# --- 8. Phase 6: Maintenance & Housekeeping ---
+echo "🧹 Phase 6: Housekeeping..."
+
+# Delete snapshots older than 7 days (Safe Syntax)
+sudo timeshift --delete-all --tags D || echo "Clean up skipped or no snapshots to delete."
+
+# Check for .pacnew files
+PACNEWS=$(find /etc -name "*.pacnew" 2>/dev/null)
+if [ -n "$PACNEWS" ]; then
+    echo "⚠️  Found .pacnew configuration files!"
+    read -p "❓ Review and merge them now with pacdiff? (y/n): " merge_now
+    if [[ $merge_now == [yY]* ]]; then
+        sudo pacdiff
+    fi
+fi
+
+# Success Sound (if sound server is active)
+command -v paplay >/dev/null && paplay /usr/share/sounds/freedesktop/stereo/complete.oga 2>/dev/null &
+
+echo "-------------------------------------------------------"
+if [ "$REBOOT_NEEDED" = true ]; then
+    echo "🚀 FINISHED! Please reboot your computer to apply the new kernel."
+else
+    echo "✅ FINISHED! Your system is up to date and clean."
+fi
+echo "-------------------------------------------------------"

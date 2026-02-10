@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# In order for "makenotif" command to work, you have to copy this to ~/bin/ as makenotif.
+# cp -r ~/.config/hypr/script/notify-send.sh ~/bin/makenotif
+
+# Arguments
+APP_NAME="${1:-placeholder}"      # -a flag
+ICON="${2:-system-run}"    # -i flag
+TITLE="${3:-Placeholder}"         # Notification Title
+MESSAGE="${4:-This is a test.}" # Notification Body
+TRANSIENT="${5:-true}"
+SOUND="${6:-}"
+
+# Run notify-send with the mapped parameters
+notify-send \
+    -a "$APP_NAME" \
+    -h "string:x-canonical-private-synchronous:$APP_NAME" \
+    -h "boolean:transient:$TRANSIENT" \
+    -i "$ICON" \
+    "$TITLE" \
+    "$MESSAGE"
+
+if [[ -n "$SOUND" ]]; then
+    playsound $SOUND
+fi
