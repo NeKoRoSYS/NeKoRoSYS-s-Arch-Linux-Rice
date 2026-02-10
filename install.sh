@@ -101,6 +101,11 @@ if [command -v "bash" >/dev/null 2>&1]; then
     grep -v -x -f ~/.bashrc .bashrc >> ~/.bashrc
 fi
 
+if [command -v "bash" >/dev/null 2>&1]; then
+    echo "zsh is installed. Appending paths..."
+    grep -v -x -f ~/.zshrc .zshrc >> ~/.zshrc
+fi
+
 cp -r .p10k.zsh ~/
 cp .face.icon ~/
 cp change-avatar.sh ~/
