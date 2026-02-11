@@ -58,6 +58,8 @@ backup_config() {
     fi
 }
 
+backup_config ~/.config/btop
+backup_config ~/.config/cava
 backup_config ~/.config/mako
 backup_config ~/.config/fastfetch
 backup_config ~/.config/kitty
