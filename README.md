@@ -2,13 +2,6 @@
 > Please star the repo if you like the dotfiles. Thank you 🙏
 <br>
 
-> [!WARNING]
-> A big update is coming soon:
-> - **Legacy** styling will receive its finishing touches.
->   - The notification panel will have several additions to its buttons grid and a few adjustments to the coloring.
-> - Better thumbnail preview support for selecting wallpapers.
-> - mako will be removed from the repo as SwayNC has been proven to be more in-line with my vision for this project.
-
 # NeKoRoDOTS 
 The best way to say "I use Arch btw 🤓" is if your desktop profile looks sleek and suave.
 
