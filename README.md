@@ -56,8 +56,8 @@ Based on [mkhmtolzhas' rice](https://github.com/mkhmtolzhas/Invincible-Dots). I 
 NeKoRoDOTS focuses on simplicity and modularity.
 
 - **One-tap Installer Script**
-  - Use `git clone https://github.com/NeKoRoSYS/NeKoRoSYS-Arch-Dotfiles`
-  - Then `cd NeKoRoSYS-Arch-Dotfiles`
+  - Use `git clone https://github.com/NeKoRoSYS/NeKoRoSYS-NeKoRoDOTS`
+  - Then `cd NeKoRoSYS-NeKoRoDOTS`
   - and finally, `bash install.sh` to install the dotfiles.
     - You can freely customize `flatpak.txt` and `pkglist.txt` before running `install.sh`.
     - The installer assumes you already installed `base-devel`, `git`, `yay`, `flatpak`.
