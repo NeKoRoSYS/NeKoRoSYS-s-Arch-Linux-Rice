@@ -72,6 +72,7 @@ NeKoRoDOTS is currently being developed by one person (*cough* [Contribution](#c
 | Dmenu Overhaul | ⏳ |
 | Support for other distros | ⏳ |
 
+The following are what NeKoRoDOTS currently offers:
 - **One-tap Installer Script**
   - Use `git clone https://github.com/NeKoRoSYS/NeKoRoSYS-NeKoRoDOTS`
   - Then `cd NeKoRoSYS-NeKoRoDOTS`
